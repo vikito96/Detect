@@ -5,109 +5,87 @@ global P V
 
 set(0,'Units','pixels');
 Ssize = get(0,'Screensize');
-
-% H.fig = dialog('WindowStyle','normal',...
-%                 'Resize','on',...
-%                 'Name','CSCX',...
-%                 'Units','pixels',...
-%                 'Position',[(Ssize(3)-1000)/2 (Ssize(4)-600)/2 1000
-%                 600]); 
-H.fig = figure('Name','Ë®ÏÂÄ¿±êÌ½²âÊ¶±ğÏµÍ³','toolbar','figure',...
+H.fig = figure('Name','æ°´ä¸‹ç›®æ ‡æ¢æµ‹è¯†åˆ«ç³»ç»Ÿ','toolbar','figure',...
         'menubar','none','numbertitle','off','unit','pixels','position',...
         [(Ssize(3)-1400)/2 (Ssize(4)-600)/2 1400 600],'visible','on','Color','w');
 
-H.Rpanel = uipanel('Parent',H.fig,'Units','pixels','Position',[245 10 1145 580],'FontName','ºÚÌå','BackgroundColor','w');
+H.Rpanel = uipanel('Parent',H.fig,'Units','pixels','Position',[245 10 1145 580],'FontName','é»‘ä½“','BackgroundColor','w');
 
 P.p1 = uipanel('Parent',H.Rpanel,'Units','pixels','Position',[5 293 565 282],'BackgroundColor','w');
 P.axes1 = axes('parent',P.p1,'Position',[0.1 0.18 0.85 0.7],'XTick',[],'Ytick',[]);
-xlabel('Ê±¼ä [s]','FontName','ºÚÌå');title('Ê±ÓòĞÅºÅ','FontName','ºÚÌå');
-%xlabel('Ê±¼ä [s]');title('Ê±ÓòĞÅºÅ');
+xlabel('æ—¶é—´ [s]','FontName','é»‘ä½“');title('æ—¶åŸŸä¿¡å·','FontName','é»‘ä½“');
 P.p2 = uipanel('Parent',H.Rpanel,'Units','pixels','Position',[575 293 565 282],'BackgroundColor','w');
 P.axes2 = axes('parent',P.p2,'Position',[0.1 0.18 0.85 0.7],'XTick',[],'Ytick',[]);
-xlabel('ÆµÂÊf [Hz]','FontName','ºÚÌå');title('ÆµÓòĞÅºÅ','FontName','ºÚÌå');
-%xlabel('Ñ­»·ÆµÂÊ¦Á [Hz]'),ylabel('ÆµÂÊf [Hz]');title('3-DÑ­»·Æ×Ïà¹Ø');
+xlabel('é¢‘ç‡f [Hz]','FontName','é»‘ä½“');title('é¢‘åŸŸä¿¡å·','FontName','é»‘ä½“');
 P.p3 = uipanel('Parent',H.Rpanel,'Units','pixels','Position',[5 5 565 283],'BackgroundColor','w');
 P.axes3 = axes('parent',P.p3,'Position',[0.1 0.18 0.85 0.7],'XTick',[],'Ytick',[]);
-title('×ÔÊÊÓ¦¼ÓÈ¨°üÂçÆ×AWES','FontName','ºÚÌå');xlabel('Ñ­»·ÆµÂÊ¦Á [Hz]','FontName','ºÚÌå');
-%xlabel('ÆµÂÊf [Hz]');title('ÆµÓòĞÅºÅ');
-P.p4 = uipanel('Parent',H.Rpanel,'Units','pixels','Position',[575 5 565 283],'title','Ä¿±êÊ¶±ğ','fontsize',14,'FontName','ºÚÌå');
-% P.axes4 = axes('parent',P.p4,'Position',[0.15 0.18 0.75 0.7]);
-%title('ÔöÇ¿°üÂçÆ×EES');xlabel('Ñ­»·ÆµÂÊ¦Á [Hz]');ylabel('Æ½¾ùÆ×Ïà¸É');
+title('è‡ªé€‚åº”åŠ æƒåŒ…ç»œè°±AWES','FontName','é»‘ä½“');xlabel('å¾ªç¯é¢‘ç‡Î± [Hz]','FontName','é»‘ä½“');
+P.p4 = uipanel('Parent',H.Rpanel,'Units','pixels','Position',[575 5 565 283],'title','ç›®æ ‡è¯†åˆ«','fontsize',14,'FontName','é»‘ä½“');
 
-H.p1 = uipanel('Parent',H.fig,'Units','pixels','Position',[10 410 225 180],'FontName','ºÚÌå','BackgroundColor','w','title','¼ÆËã²ÎÊı','fontsize',14,'FontName','ºÚÌå');
-% uicontrol('parent',H.p1,'Style','text','string','²ÎÊıÉèÖÃ','Units','pixels','Position',...
-%              [0 200 130 25],'fontsize',15,'BackgroundColor','w','FontName','ºÚÌå');
-uicontrol('parent',H.p1,'Style','text','string','Êı¾İÊ±³¤£¨S£©','Units','pixels','Position',...
-             [0 130 225 20],'fontsize',12,'BackgroundColor','w','FontName','ºÚÌå');
+H.p1 = uipanel('Parent',H.fig,'Units','pixels','Position',[10 410 225 180],'FontName','é»‘ä½“','BackgroundColor','w','title','è®¡ç®—å‚æ•°','fontsize',14,'FontName','é»‘ä½“');
+uicontrol('parent',H.p1,'Style','text','string','æ•°æ®æ—¶é•¿ï¼ˆSï¼‰','Units','pixels','Position',...
+             [0 130 225 20],'fontsize',12,'BackgroundColor','w','FontName','é»‘ä½“');
 V.p1 = uicontrol('parent',H.p1,'Style','edit','string',10,'Units','pixels','Position',...
-             [10 105 205 20],'fontsize',12,'BackgroundColor','w','FontName','ºÚÌå');
-uicontrol('parent',H.p1,'Style','text','string','×î´óÑ­»·ÆµÂÊ¦Á£¨Hz£©','Units','pixels','Position',...
-             [0 80 225 20],'fontsize',12,'BackgroundColor','w','FontName','ºÚÌå');
+             [10 105 205 20],'fontsize',12,'BackgroundColor','w','FontName','é»‘ä½“');
+uicontrol('parent',H.p1,'Style','text','string','æœ€å¤§å¾ªç¯é¢‘ç‡Î±ï¼ˆHzï¼‰','Units','pixels','Position',...
+             [0 80 225 20],'fontsize',12,'BackgroundColor','w','FontName','é»‘ä½“');
 V.p2 = uicontrol('parent',H.p1,'Style','edit','string',15,'Units','pixels','Position',...
-             [10 55 205 20],'fontsize',12,'BackgroundColor','w','FontName','ºÚÌå');
-uicontrol('parent',H.p1,'Style','text','string','×î´óÁ¬ĞøÆµÂÊf£¨Hz£©','Units','pixels','Position',...
-             [0 30 225 20],'fontsize',12,'BackgroundColor','w','FontName','ºÚÌå');
+             [10 55 205 20],'fontsize',12,'BackgroundColor','w','FontName','é»‘ä½“');
+uicontrol('parent',H.p1,'Style','text','string','æœ€å¤§è¿ç»­é¢‘ç‡fï¼ˆHzï¼‰','Units','pixels','Position',...
+             [0 30 225 20],'fontsize',12,'BackgroundColor','w','FontName','é»‘ä½“');
 V.p3 = uicontrol('parent',H.p1,'Style','edit','string',1000,'Units','pixels','Position',...
-             [10 5 205 20],'fontsize',12,'BackgroundColor','w','FontName','ºÚÌå');
-% uicontrol('parent',H.p1,'Style','text','string','Á¬ĞøÆµÂÊ·Ö±æÂÊdf£¨Hz£©','Units','pixels','Position',...
-%              [0 30 200 20],'fontsize',12,'BackgroundColor','w','FontName','ºÚÌå');
-% V.p4 = uicontrol('parent',H.p1,'Style','edit','string',0.1,'Units','pixels','Position',...
-%              [10 5 205 20],'fontsize',12,'BackgroundColor','w','FontName','ºÚÌå');
-%P.axes4 = axes('parent',H.p1,'Units','pixels','Position',[175 2000 30 50];
+             [10 5 205 20],'fontsize',12,'BackgroundColor','w','FontName','é»‘ä½“');
 
 
 H.p2 = uipanel('Parent',H.fig,'Units','pixels','Position',[10 365 225 40],'BackgroundColor','w');
-V.B = uicontrol('parent',H.p2,'Style','push','BackgroundColor','y','String','Ñ¡ÔñÎÄ¼ş²¢¼ÆËã','Units','pixels','Position',... 
-             [5 5 215 30],'fontsize',14,'Callback',{@cscx_comp,V,P,H},'FontName','ºÚÌå');
+V.B = uicontrol('parent',H.p2,'Style','push','BackgroundColor','y','String','é€‰æ‹©æ–‡ä»¶å¹¶è®¡ç®—','Units','pixels','Position',... 
+             [5 5 215 30],'fontsize',14,'Callback',{@cscx_comp,V,P,H},'FontName','é»‘ä½“');
          
-H.p3 = uipanel('Parent',H.fig,'Units','pixels','Position',[10 80 225 230],'BackgroundColor','w','title','¼ì²â²ÎÊı','fontsize',14,'FontName','ºÚÌå');
-% uicontrol('parent',H.p3,'Style','text','string','¸ß¼¶ÉèÖÃ£º','Units','pixels','Position',...
-%              [0 150 130 25],'fontsize',14,'BackgroundColor','w');
-uicontrol('parent',H.p3,'Style','text','string','¼ì²â´°³¤','Units','pixels','Position',...
-             [0 180 200 20],'fontsize',12,'BackgroundColor','w','FontName','ºÚÌå');
+H.p3 = uipanel('Parent',H.fig,'Units','pixels','Position',[10 80 225 230],'BackgroundColor','w','title','æ£€æµ‹å‚æ•°','fontsize',14,'FontName','é»‘ä½“');
+uicontrol('parent',H.p3,'Style','text','string','æ£€æµ‹çª—é•¿','Units','pixels','Position',...
+             [0 180 200 20],'fontsize',12,'BackgroundColor','w','FontName','é»‘ä½“');
 V.p5 = uicontrol('parent',H.p3,'Style','edit','string',[],'Units','pixels','Position',...
-             [10 155 205 20],'fontsize',12,'BackgroundColor','w','FontName','ºÚÌå');
-uicontrol('parent',H.p3,'Style','text','string','¼ì²â´°ÖØµşÂÊ£¨%£©','Units','pixels','Position',...
-             [0 130 200 20],'fontsize',12,'BackgroundColor','w','FontName','ºÚÌå');
+             [10 155 205 20],'fontsize',12,'BackgroundColor','w','FontName','é»‘ä½“');
+uicontrol('parent',H.p3,'Style','text','string','æ£€æµ‹çª—é‡å ç‡ï¼ˆ%ï¼‰','Units','pixels','Position',...
+             [0 130 200 20],'fontsize',12,'BackgroundColor','w','FontName','é»‘ä½“');
 V.p6 = uicontrol('parent',H.p3,'Style','edit','string',[],'Units','pixels','Position',...
-             [10 105 205 20],'fontsize',12,'BackgroundColor','w','FontName','ºÚÌå');
-uicontrol('parent',H.p3,'Style','text','string','¼ì²â´°·ùÖµÏµÊı£¨%£©','Units','pixels','Position',...
-             [0 80 200 20],'fontsize',12,'BackgroundColor','w','FontName','ºÚÌå');
+             [10 105 205 20],'fontsize',12,'BackgroundColor','w','FontName','é»‘ä½“');
+uicontrol('parent',H.p3,'Style','text','string','æ£€æµ‹çª—å¹…å€¼ç³»æ•°ï¼ˆ%ï¼‰','Units','pixels','Position',...
+             [0 80 200 20],'fontsize',12,'BackgroundColor','w','FontName','é»‘ä½“');
 V.p7 = uicontrol('parent',H.p3,'Style','edit','string',[],'Units','pixels','Position',...
-             [10 55 205 20],'fontsize',12,'BackgroundColor','w','FontName','ºÚÌå');
-uicontrol('parent',H.p3,'Style','text','string','¼ì²â´ø¿íÏµÊı£¨%£©','Units','pixels','Position',...
-             [0 30 200 20],'fontsize',12,'BackgroundColor','w','FontName','ºÚÌå');         
+             [10 55 205 20],'fontsize',12,'BackgroundColor','w','FontName','é»‘ä½“');
+uicontrol('parent',H.p3,'Style','text','string','æ£€æµ‹å¸¦å®½ç³»æ•°ï¼ˆ%ï¼‰','Units','pixels','Position',...
+             [0 30 200 20],'fontsize',12,'BackgroundColor','w','FontName','é»‘ä½“');         
 V.p8 = uicontrol('parent',H.p3,'Style','edit','string',[],'Units','pixels','Position',...
-             [10 5 205 20],'fontsize',12,'BackgroundColor','w','FontName','ºÚÌå');
-         
-% f1 = getframe(H.fig,[10 85 225 40]);
-H.p4 = uipanel('Parent',H.fig,'Units','pixels','Position',[10 35 225 40],'BackgroundColor','w');
-V.C = uicontrol('parent',H.p4,'Style','push','String','ÖØĞÂ¼ì²â','Units','pixels','Position',...
-             [5 5 215 30],'fontsize',14,'Callback',{@cscx_re,V,P,H},'FontName','ºÚÌå');
+             [10 5 205 20],'fontsize',12,'BackgroundColor','w','FontName','é»‘ä½“');
 
-Hm = uimenu('Parent',H.fig,'Label','¹¦ÄÜ');
+H.p4 = uipanel('Parent',H.fig,'Units','pixels','Position',[10 35 225 40],'BackgroundColor','w');
+V.C = uicontrol('parent',H.p4,'Style','push','String','é‡æ–°æ£€æµ‹','Units','pixels','Position',...
+             [5 5 215 30],'fontsize',14,'Callback',{@cscx_re,V,P,H},'FontName','é»‘ä½“');
+
+Hm = uimenu('Parent',H.fig,'Label','åŠŸèƒ½');
 uimenu('Parent',Hm,...
-       'Label','·µ»Ø',...
+       'Label','è¿”å›',...
        'Callback','close;cscx_main');
 uimenu('Parent',Hm,...
-       'Label','»Ö¸´',...
+       'Label','æ¢å¤',...
        'Callback','cscx_actu');
 uimenu('Parent',Hm,...
-       'Label','¹Ø±Õ',...
+       'Label','å…³é—­',...
        'Callback','close(gcbf)');
    
-   P.text1= uicontrol('Parent',P.p4,'Style','text','String','Æ½¾ùãĞÖµ±ÈART:','Position',[5 178 280 20],'fontsize',12,'FontName','ºÚÌå','HorizontalAlignment','right');
-   P.edit1= uicontrol('Parent',P.p4,'Style','edit','String',[],'Position',[290 178 100 20],'fontsize',12,'FontName','ºÚÌå','Enable','inactive','BackgroundColor','k','ForegroundColor','w');
-   P.text2= uicontrol('Parent',P.p4,'Style','text','String','ÆµÆ××î´óÖµ¶ÔÓ¦ÆµÂÊ:','Position',[5 148 280 20],'fontsize',12,'FontName','ºÚÌå','HorizontalAlignment','right');
-   P.edit2= uicontrol('Parent',P.p4,'Style','edit','String',[],'Position',[290 148 100 20],'fontsize',12,'FontName','ºÚÌå','Enable','inactive','BackgroundColor','k','ForegroundColor','w');
-   P.text21= uicontrol('Parent',P.p4,'Style','text','String','Hz','Position',[395 148 175 20],'fontsize',12,'FontName','ºÚÌå','HorizontalAlignment','left');
-   P.text3= uicontrol('Parent',P.p4,'Style','text','String','°üÂçÆ××î´óÖµ¶ÔÓ¦ÆµÂÊ:','Position',[5 118 280 20],'fontsize',12,'FontName','ºÚÌå','HorizontalAlignment','right');
-   P.edit3= uicontrol('Parent',P.p4,'Style','edit','String',[],'Position',[290 118 100 20],'fontsize',12,'FontName','ºÚÌå','Enable','inactive','BackgroundColor','k','ForegroundColor','w');
-   P.text31= uicontrol('Parent',P.p4,'Style','text','String','Hz','Position',[395 118 175 20],'fontsize',12,'FontName','ºÚÌå','HorizontalAlignment','left');
-   P.text4= uicontrol('Parent',P.p4,'Style','text','String','ÍÆ²â×ªËÙ:','Position',[5 88 280 20],'fontsize',12,'FontName','ºÚÌå','HorizontalAlignment','right');
-   P.text41= uicontrol('Parent',P.p4,'Style','text','String','r/min','Position',[395 88 175 20],'fontsize',12,'FontName','ºÚÌå','HorizontalAlignment','left');
-   P.edit4= uicontrol('Parent',P.p4,'Style','edit','String',[],'Position',[290 88 100 20],'fontsize',12,'FontName','ºÚÌå','Enable','inactive','BackgroundColor','k','ForegroundColor','w');
-   P.p5= uipanel('Parent',P.p4,'Units','pixels','Position',[5 5 555 60],'title','±¸×¢','fontsize',14,'FontName','ºÚÌå');
-   str2=['ART>1ÍÆ²âÄ¿±ê¿ÉÄÜ´æÔÚ' newline 'ARTÔ½´óÄ¿±ê´æÔÚ¿ÉÄÜĞÔÔ½´ó'];
-   P.text5= uicontrol('Parent',P.p5,'Style','text','String',str2,'Position',[0 0 555 40],'fontsize',12,'FontName','ºÚÌå','ForegroundColor','b');
+   P.text1= uicontrol('Parent',P.p4,'Style','text','String','å¹³å‡é˜ˆå€¼æ¯”ART:','Position',[5 178 280 20],'fontsize',12,'FontName','é»‘ä½“','HorizontalAlignment','right');
+   P.edit1= uicontrol('Parent',P.p4,'Style','edit','String',[],'Position',[290 178 100 20],'fontsize',12,'FontName','é»‘ä½“','Enable','inactive','BackgroundColor','k','ForegroundColor','w');
+   P.text2= uicontrol('Parent',P.p4,'Style','text','String','é¢‘è°±æœ€å¤§å€¼å¯¹åº”é¢‘ç‡:','Position',[5 148 280 20],'fontsize',12,'FontName','é»‘ä½“','HorizontalAlignment','right');
+   P.edit2= uicontrol('Parent',P.p4,'Style','edit','String',[],'Position',[290 148 100 20],'fontsize',12,'FontName','é»‘ä½“','Enable','inactive','BackgroundColor','k','ForegroundColor','w');
+   P.text21= uicontrol('Parent',P.p4,'Style','text','String','Hz','Position',[395 148 175 20],'fontsize',12,'FontName','é»‘ä½“','HorizontalAlignment','left');
+   P.text3= uicontrol('Parent',P.p4,'Style','text','String','åŒ…ç»œè°±æœ€å¤§å€¼å¯¹åº”é¢‘ç‡:','Position',[5 118 280 20],'fontsize',12,'FontName','é»‘ä½“','HorizontalAlignment','right');
+   P.edit3= uicontrol('Parent',P.p4,'Style','edit','String',[],'Position',[290 118 100 20],'fontsize',12,'FontName','é»‘ä½“','Enable','inactive','BackgroundColor','k','ForegroundColor','w');
+   P.text31= uicontrol('Parent',P.p4,'Style','text','String','Hz','Position',[395 118 175 20],'fontsize',12,'FontName','é»‘ä½“','HorizontalAlignment','left');
+   P.text4= uicontrol('Parent',P.p4,'Style','text','String','æ¨æµ‹è½¬é€Ÿ:','Position',[5 88 280 20],'fontsize',12,'FontName','é»‘ä½“','HorizontalAlignment','right');
+   P.text41= uicontrol('Parent',P.p4,'Style','text','String','r/min','Position',[395 88 175 20],'fontsize',12,'FontName','é»‘ä½“','HorizontalAlignment','left');
+   P.edit4= uicontrol('Parent',P.p4,'Style','edit','String',[],'Position',[290 88 100 20],'fontsize',12,'FontName','é»‘ä½“','Enable','inactive','BackgroundColor','k','ForegroundColor','w');
+   P.p5= uipanel('Parent',P.p4,'Units','pixels','Position',[5 5 555 60],'title','å¤‡æ³¨','fontsize',14,'FontName','é»‘ä½“');
+   str2=['ART>1æ¨æµ‹ç›®æ ‡å¯èƒ½å­˜åœ¨' newline 'ARTè¶Šå¤§ç›®æ ‡å­˜åœ¨å¯èƒ½æ€§è¶Šå¤§'];
+   P.text5= uicontrol('Parent',P.p5,'Style','text','String',str2,'Position',[0 0 555 40],'fontsize',12,'FontName','é»‘ä½“','ForegroundColor','b');
 end
