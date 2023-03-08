@@ -1,19 +1,12 @@
-function cscx_re(hObject,~,~,p,~)
+function cscx_re(hObject,~,V,P,alphaF,Sk,ac,t,a_end)
 
-global  alphaF alphas;
-global t  a_end ac;
-global ac1 th  Sk P V;
+
 if (get(hObject,'Value') == 1)
-    %     Nthw =max(fix(0.27*a_end*t(end)),10);%平滑窗长
-    %     thv=0.75;
-    %     Nthv = fix(thv*Nthw);%重叠率
-    %     level=0.9;%排序等级
-    %     X=max(round(50/(a_end*t(end)),2),0.01);%带宽系数（中心左右各X）
-    
+    alphas=P.EES.String;
     dot_index = strfind(alphas,'~');
     smax = str2double(alphas(dot_index+1:end));
     smin = str2double(alphas(1:dot_index-1));
-    [~,Iac1]=min(abs(alphaF(2:end)-ac1));%ac1索引
+    [~,Iac1]=min(abs(alphaF(2:end)-ac(1)));%ac1索引
     [~,n1]=min(abs(alphaF-smin));
     n1=max(2,n1);
     [~,n2]=min(abs(alphaF-smax));
@@ -60,7 +53,7 @@ if (get(hObject,'Value') == 1)
         ath(i)=alphaF(ceil((N1+N2)/2));%窗中点循环频率
     end
     th= interp1(ath,thi',alphaF(2:end),'pchip','extrap');%插值生成阈值曲线
-    
+    P.p3.UserData.th=th;
     
     %检测带宽和对应峰值
     B=zeros(2*length(ac),1);%检测带宽
@@ -84,7 +77,7 @@ if (get(hObject,'Value') == 1)
     
     
     %图3，画AWES
-    axes(p.axes3);
+    axes(P.axes3);
     plot(alphaF(n1:n2),Sk(n1-1:n2-1),'k','linewidth',0.75,'HandleVisibility','off')
     axis tight
     set(gca,'FontName','Times New Roman','fontsize',12);
@@ -93,7 +86,7 @@ if (get(hObject,'Value') == 1)
     hold on
     plot(alphaF(Iac1+1),Sk(Iac1),'ro','LineWidth',1.5,'MarkerSize',8)%推测轴频
     plot(alphaF(n1:n2),th(n1-1:n2-1),'r-.','linewidth',1.5,'HandleVisibility','off')%阈值曲线
-    lgd=legend([num2str(ac1) 'Hz']);
+    lgd=legend([num2str(ac(1)) 'Hz']);
     lgd.FontName='Times New Roman';
     lgd.FontSize=14;
     legend('boxoff')
@@ -103,10 +96,10 @@ if (get(hObject,'Value') == 1)
     set(P.edit1,'String',num2str(ppp));
     
     if ppp<1
-        P.text0= uicontrol('Parent',p.p4,'Style','text','String','未检测到水下目标','Position',[5 208 555 20],'fontsize',14,'FontName','黑体');
+        P.text0= uicontrol('Parent',P.p4,'Style','text','String','未检测到水下目标','Position',[5 208 555 20],'fontsize',14,'FontName','黑体');
         set(P.edit4,'String','/');
     else
-        P.text0= uicontrol('Parent',p.p4,'Style','text','String','检测到水下目标','Position',[5 208 555 20],'fontsize',14,'FontName','黑体','ForegroundColor','r');
+        P.text0= uicontrol('Parent',P.p4,'Style','text','String','检测到水下目标','Position',[5 208 555 20],'fontsize',14,'FontName','黑体','ForegroundColor','r');
     end
     
 end

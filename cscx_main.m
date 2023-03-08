@@ -1,5 +1,8 @@
 function cscx_main()
-clc
+%CSCX_MAIN is 是the main function of the software and it plots the main interface.
+
+%版本：v1.0,编写：2023.3.8,作者：童威棋
+
 close all
 addpath('3_cscxactu');
 addpath('4_cscxtool');

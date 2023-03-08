@@ -1,7 +1,6 @@
-function cscx_EES(hObject,~,p)
-global alphaF Sk ac1 th alphas;
-% x = get(v.p1,'UserData');
-% y = get(v.p2,'UserData');
+function cscx_EES(hObject,~,P,alphaF,Sk,ac1)
+
+th=P.p3.UserData.th;
 alphas = get(hObject,'String');
 dot_index = strfind(alphas,'~');
 smax = str2double(alphas(dot_index+1:end));
@@ -12,7 +11,7 @@ n1=max(2,n1);
 [~,n2]=min(abs(alphaF-smax));
 n2=max(Iac1+1,n2);
 
-axes(p.axes3);
+axes(P.axes3);
 plot(alphaF(n1:n2),Sk(n1-1:n2-1),'k','linewidth',0.75,'HandleVisibility','off')
 axis tight 
 xticks('auto') 
