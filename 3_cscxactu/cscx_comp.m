@@ -173,7 +173,7 @@ if (get(hObject,'Value') == 1)
     P.p3.UserData=struct('th',th);
     set(P.B1,'Callback',{@cscx_sound,x,Fs});%播放按钮
     set(P.E1,'Callback',{@cscx_p1,P,t,x});%时间范围
-    set(P.E1,'Callback',{@cscx_p3,P,f1,P2});%频率范围
+    set(P.E3,'Callback',{@cscx_p3,P,f1,P2});%频率范围
     set(V.B2,'Enable','on','Callback',{@cscx_re,V,P,alphaF,Sk,ac,t,a_end});%重新检测按钮
     set(P.EES,'Callback',{@cscx_EES,P,alphaF,Sk,ac1});%循环频率范围
 end
