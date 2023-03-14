@@ -3,6 +3,7 @@ function cscx_comp(hObject,~,V,P,H)
 %输入:V,P,H:控件句柄
 
 %版本：v1.0,编写：2023.3.8,作者：童威棋
+
 if (get(hObject,'Value') == 1)
     %% 选择文件及输入
     [filename,pathname]=uigetfile({'*.wav';'*.mp3';'*.txt'},'选择测试音频文件');
@@ -60,7 +61,7 @@ if (get(hObject,'Value') == 1)
     axes(P.axes1);
     plot(t,x,'k');
     axis tight
-    ylim([-inf,1.2*max(x)]);
+    ylim([-1.2*max(abs(x)),1.2*max(abs(x))]);
     set(gca,'FontName','Times New Roman','fontsize',12);
     xlabel('时间 [s]','FontName','黑体','fontsize',12);title('时域信号','FontName','黑体','fontsize',12);
     P.B1 = uicontrol('Parent',P.p1,'Style','push','String','播放','Position',[20,5,45,25],'fontsize',12,'FontName','黑体');

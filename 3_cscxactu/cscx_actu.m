@@ -82,10 +82,10 @@ function P=prepanel(parent,position,varargin)
 %可选输入:title:面板标题（[]），BackgroundColor:背景色（'w'）
 %输出:P:面板句柄
 
-p = inputParser;
-addRequired(p,'parent');
+p = inputParser;%输入解析器
+addRequired(p,'parent');%添加必须变量
 addRequired(p,'position');
-addParameter(p,'title',[]);
+addParameter(p,'title',[]);%添加可选变量，设置缺省值[]
 addParameter(p,'BackgroundColor','w');
 parse(p,parent,position,varargin{:});
 
@@ -100,8 +100,8 @@ function [P,ax1]=preplot(parent,position,xla,tit)
 %输出:P:面板句柄，ax1:坐标轴句柄
 
 P= uipanel('Parent',parent,'Units','pixels','Position',position,'BackgroundColor','w');
-ax1 = axes('parent',P,'Position',[0.1 0.18 0.85 0.7],'XTick',[],'Ytick',[]);
-xlabel(xla,'FontName','黑体');title(tit,'FontName','黑体');
+ax1 = axes('parent',P,'Position',[0.1 0.18 0.85 0.7],'XTick',[],'Ytick',[],'FontName','黑体','FontSize',12);
+xlabel(xla);title(tit);
 end
 
 function P= pretext(parent,position,str,style)
